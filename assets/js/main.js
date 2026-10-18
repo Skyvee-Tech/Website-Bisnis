@@ -133,9 +133,105 @@
     });
   }
 
-  const onScroll = () => header.classList.toggle('is-scrolled', window.scrollY > 8);
+  const galleryImgs = [...document.querySelectorAll('.gallery .shot img')];
+  const lightbox = document.getElementById('lightbox');
+  const lbImg = lightbox?.querySelector('[data-lb-img]');
+  const lbCap = lightbox?.querySelector('[data-lb-caption]');
+  if (galleryImgs.length && lightbox && lbImg && lbCap) {
+    let lbIndex = 0;
+    const closeLb = () => {
+      if (typeof lightbox.close === 'function') lightbox.close();
+      else lightbox.removeAttribute('open');
+    };
+    const showLb = (i) => {
+      lbIndex = (i + galleryImgs.length) % galleryImgs.length;
+      const img = galleryImgs[lbIndex];
+      lbImg.src = img.currentSrc || img.src;
+      lbImg.alt = img.alt;
+      lbCap.textContent = img.closest('figure')?.querySelector('figcaption')?.textContent || img.alt;
+    };
+    const openLb = (i) => {
+      showLb(i);
+      if (typeof lightbox.showModal === 'function') lightbox.showModal();
+      else lightbox.setAttribute('open', '');
+    };
+    galleryImgs.forEach((img, i) => {
+      img.tabIndex = 0;
+      img.setAttribute('role', 'button');
+      img.setAttribute('aria-label', `Perbesar foto: ${img.alt}`);
+      img.addEventListener('click', () => openLb(i));
+      img.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          openLb(i);
+        }
+      });
+    });
+    lightbox.querySelector('[data-lb-close]')?.addEventListener('click', closeLb);
+    lightbox.querySelector('[data-lb-prev]')?.addEventListener('click', () => showLb(lbIndex - 1));
+    lightbox.querySelector('[data-lb-next]')?.addEventListener('click', () => showLb(lbIndex + 1));
+    lightbox.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') { e.preventDefault(); showLb(lbIndex - 1); }
+      if (e.key === 'ArrowRight') { e.preventDefault(); showLb(lbIndex + 1); }
+    });
+    lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLb(); });
+  }
+
+  const progress = document.createElement('div');
+  progress.className = 'scroll-progress';
+  progress.setAttribute('aria-hidden', 'true');
+  progress.innerHTML = '<span></span>';
+  document.body.prepend(progress);
+  const progressBar = progress.firstElementChild;
+
+  const navLinks = [...document.querySelectorAll('.site-nav a[href^="#"]')];
+  const navSections = navLinks
+    .map((link) => document.querySelector(link.getAttribute('href')))
+    .filter(Boolean);
+
+  const onScroll = () => {
+    header.classList.toggle('is-scrolled', window.scrollY > 8);
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    progressBar.style.transform = `scaleX(${max > 0 ? Math.min(window.scrollY / max, 1) : 0})`;
+    let current = null;
+    navSections.forEach((section) => {
+      if (section.getBoundingClientRect().top <= 120) current = section;
+    });
+    navLinks.forEach((link) => {
+      if (current && link.getAttribute('href') === `#${current.id}`) link.setAttribute('aria-current', 'location');
+      else link.removeAttribute('aria-current');
+    });
+  };
+  let ticking = false;
+  const requestScroll = () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => {
+      onScroll();
+      ticking = false;
+    });
+  };
   onScroll();
-  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('scroll', requestScroll, { passive: true });
+  window.addEventListener('resize', requestScroll);
+
+  const canHover = window.matchMedia('(hover: hover)').matches;
+  const reducePointer = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (canHover && !reducePointer) {
+    let pointerRaf = 0;
+    document.addEventListener('pointermove', (e) => {
+      const card = e.target.closest('.card, .article-card, .review-card, .wizard');
+      if (!card || pointerRaf) return;
+      const x = e.clientX;
+      const y = e.clientY;
+      pointerRaf = requestAnimationFrame(() => {
+        const rect = card.getBoundingClientRect();
+        card.style.setProperty('--mx', `${x - rect.left}px`);
+        card.style.setProperty('--my', `${y - rect.top}px`);
+        pointerRaf = 0;
+      });
+    }, { passive: true });
+  }
 
   const year = document.getElementById('year');
   if (year) year.textContent = new Date().getFullYear();
