@@ -82,12 +82,6 @@ Chat dulu sebelum datang supaya teknisi sudah siap dan sparepart yang Anda butuh
 - **Instagram:** [@skyvee_tech](https://www.instagram.com/skyvee_tech)
 - **Website:** [skyveetech.my.id](https://skyveetech.my.id/)
 
-## Catatan deploy & SEO
-
-- Domain utama: `https://skyveetech.my.id/` (diarahkan ke GitHub Pages lewat file `CNAME`).
-- Submit `https://skyveetech.my.id/sitemap.xml` di Google Search Console.
-- `robots.txt` dan `sitemap.xml` sekarang berada di root domain, jadi bisa dibaca crawler.
-
 <p align="center">
   <br>
   <a href="https://wa.me/6285641388709?text=Halo%20Skyvee%20Tech%2C%20saya%20mau%20tanya%20soal%20servis."><img src="https://img.shields.io/badge/Chat%20sekarang-WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" alt="Chat WhatsApp"></a>
