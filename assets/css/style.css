@@ -365,6 +365,20 @@ a:hover { color: var(--brand-700); }
   border-radius: 50%;
   background: #1fb56a;
   box-shadow: 0 0 0 4px rgba(31, 181, 106, .16);
+  animation: status-blink 2s ease-in-out infinite;
+}
+@keyframes status-blink {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 0 4px rgba(31, 181, 106, .16);
+  }
+  50% {
+    opacity: .45;
+    box-shadow: 0 0 0 7px rgba(31, 181, 106, 0);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pill .dot { animation: none; }
 }
 
 .hero h1 { max-width: 15ch; }
