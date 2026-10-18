@@ -104,6 +104,24 @@
     note?.addEventListener('input', () => { state.note = note.value.trim(); update(); });
   }
 
+  const reviewMore = document.querySelector('[data-review-more]');
+  const reviewExtras = [...document.querySelectorAll('[data-review-extra]')];
+  if (reviewMore && reviewExtras.length) {
+    const moreLabel = `Tampilkan ${reviewExtras.length} ulasan lainnya`;
+    document.getElementById('review-cards')?.classList.add('is-collapsible');
+    reviewMore.hidden = false;
+    reviewMore.textContent = moreLabel;
+    reviewMore.addEventListener('click', () => {
+      const expanded = reviewMore.getAttribute('aria-expanded') === 'true';
+      reviewExtras.forEach((card) => {
+        card.classList.toggle('is-shown', !expanded);
+        if (!expanded) card.classList.add('is-visible');
+      });
+      reviewMore.setAttribute('aria-expanded', String(!expanded));
+      reviewMore.textContent = expanded ? moreLabel : 'Tampilkan lebih sedikit';
+    });
+  }
+
   const onScroll = () => header.classList.toggle('is-scrolled', window.scrollY > 8);
   onScroll();
   window.addEventListener('scroll', onScroll, { passive: true });
