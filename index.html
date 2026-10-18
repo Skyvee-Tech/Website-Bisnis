@@ -7,11 +7,13 @@
 <meta name="description" content="Servis laptop, komputer, dan printer di Kajen, Pekalongan. Install ulang Windows, upgrade SSD/RAM, recovery data, rakit PC, jual beli, dan sparepart. Buka 24 jam. Rating 4,9 di Google.">
 <meta name="theme-color" content="#16204a">
 <meta name="robots" content="index,follow">
+<link rel="canonical" href="https://skyvee-tech.github.io/Website-Bisnis/">
 
-<!-- Ganti dengan URL lengkap setelah punya domain, contoh: https://skyveetech.id/assets/img/og.jpg -->
+<!-- URL absolut; ganti semua URL GitHub Pages ini jika pindah domain. -->
 <meta property="og:type" content="website">
 <meta property="og:locale" content="id_ID">
 <meta property="og:site_name" content="Skyvee Tech">
+<meta property="og:url" content="https://skyvee-tech.github.io/Website-Bisnis/">
 <meta property="og:title" content="Skyvee Tech — Servis Laptop &amp; Komputer Kajen, Buka 24 Jam">
 <meta property="og:description" content="Install ulang, upgrade SSD/RAM, recovery data, rakit PC, jual beli, dan sparepart. Buka 24 jam di Kajen, Pekalongan.">
 <meta property="og:image" content="https://skyvee-tech.github.io/Website-Bisnis/assets/img/og.jpg">
@@ -21,10 +23,7 @@
 
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="image" href="assets/img/logo-mark.webp">
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;800&display=swap" rel="stylesheet">
+<link rel="preload" href="assets/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
 <script>
 (function () {
   var theme;
@@ -124,7 +123,7 @@
 <header class="site-header" id="site-header">
   <div class="wrap header-inner">
     <a class="brand" href="#atas" aria-label="Skyvee Tech — kembali ke atas">
-      <img id="brand-mark" src="assets/img/logo-mark.webp" data-light="assets/img/logo-mark.webp" data-dark="assets/img/logo-mark-dark.webp" alt="" width="277" height="240" fetchpriority="high">
+      <img id="brand-mark" src="assets/img/logo-mark.webp" data-light="assets/img/logo-mark.webp" data-dark="assets/img/logo-mark-dark.webp" alt="" width="277" height="240">
       <script>
         if (document.documentElement.getAttribute('data-theme') === 'dark') {
           document.getElementById('brand-mark').src = 'assets/img/logo-mark-dark.webp';
@@ -306,7 +305,7 @@
         </ol>
 
         <div class="wizard-step is-active" data-step="1">
-          <p class="wizard-q" id="wz-device">Perangkat apa yang bermasalah?</p>
+          <p class="wizard-q" id="wz-device" tabindex="-1">Perangkat apa yang bermasalah?</p>
           <div class="chips" role="group" aria-labelledby="wz-device">
             <button type="button" class="chip" data-value="Laptop" aria-pressed="false">Laptop</button>
             <button type="button" class="chip" data-value="Komputer / PC" aria-pressed="false">Komputer / PC</button>
@@ -320,7 +319,7 @@
         </div>
 
         <div class="wizard-step" data-step="2">
-          <p class="wizard-q" id="wz-issue">Apa yang terjadi?</p>
+          <p class="wizard-q" id="wz-issue" tabindex="-1">Apa yang terjadi?</p>
           <div class="chips" role="group" aria-labelledby="wz-issue">
             <button type="button" class="chip" data-value="Mati total" aria-pressed="false">Mati total</button>
             <button type="button" class="chip" data-value="Lemot / berat" aria-pressed="false">Lemot / berat</button>
@@ -339,7 +338,7 @@
         </div>
 
         <div class="wizard-step" data-step="3">
-          <p class="wizard-q">Tambahkan catatan <span>(opsional)</span></p>
+          <p class="wizard-q" tabindex="-1">Tambahkan catatan <span>(opsional)</span></p>
           <label class="sr-only" for="wz-note">Catatan</label>
           <textarea id="wz-note" class="wizard-note" rows="3" placeholder="Contoh: ASUS X441, sudah coba charger lain tetap mati." data-note></textarea>
           <p class="wizard-summary" data-summary aria-live="polite"></p>
@@ -664,7 +663,7 @@
 <footer class="site-footer">
   <div class="wrap footer-grid">
     <div class="footer-brand">
-      <img src="assets/img/logo.webp" alt="Logo Skyvee Tech" width="900" height="909" loading="lazy">
+      <img src="assets/img/logo.webp" alt="Logo Skyvee Tech" width="450" height="455" loading="lazy">
       <p>Servis, jual beli, dan sparepart laptop &amp; komputer di Kajen, Kabupaten Pekalongan.</p>
     </div>
     <nav class="footer-nav" aria-label="Navigasi footer">

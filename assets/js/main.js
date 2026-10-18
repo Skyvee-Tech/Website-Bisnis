@@ -9,12 +9,18 @@
     header.classList.toggle('is-open', open);
     toggle.setAttribute('aria-expanded', String(open));
     toggle.setAttribute('aria-label', open ? 'Tutup menu' : 'Buka menu');
-    iconUse.setAttribute('href', open ? '#i-close' : '#i-menu');
+    iconUse?.setAttribute('href', open ? '#i-close' : '#i-menu');
+    if (open) nav?.querySelector('a')?.focus();
   };
 
   toggle?.addEventListener('click', () => setMenu(!header.classList.contains('is-open')));
   nav?.addEventListener('click', (e) => { if (e.target.closest('a')) setMenu(false); });
-  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenu(false); });
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== 'Escape') return;
+    const wasOpen = header.classList.contains('is-open');
+    setMenu(false);
+    if (wasOpen) toggle?.focus();
+  });
   document.addEventListener('click', (e) => {
     if (header.classList.contains('is-open') && !header.contains(e.target)) setMenu(false);
   });
@@ -67,6 +73,7 @@
       steps.forEach((s) => s.classList.toggle('is-active', Number(s.dataset.step) === n));
       dots.forEach((d) => d.classList.toggle('is-active', Number(d.dataset.dot) <= n));
       if (n === 3) update();
+      wz.querySelector(`[data-step="${n}"] .wizard-q`)?.focus();
     };
 
     const bind = (step, key) => {
@@ -76,8 +83,16 @@
         chip.addEventListener('click', () => {
           group.querySelectorAll('.chip').forEach((c) => c.setAttribute('aria-pressed', 'false'));
           chip.setAttribute('aria-pressed', 'true');
+          const changed = state[key] !== chip.dataset.value;
           state[key] = chip.dataset.value;
           if (next) next.disabled = false;
+          if (step === 1 && changed) {
+            const issueGroup = wz.querySelector('[data-step="2"]');
+            state.issue = '';
+            issueGroup.querySelectorAll('.chip').forEach((c) => c.setAttribute('aria-pressed', 'false'));
+            const issueNext = issueGroup.querySelector('[data-next]');
+            if (issueNext) issueNext.disabled = true;
+          }
         });
       });
     };
