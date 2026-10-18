@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://skyvee-tech.github.io/Website-Bisnis/sitemap.xml
+Sitemap: https://skyveetech.my.id/sitemap.xml

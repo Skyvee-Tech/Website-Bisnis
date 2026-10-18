@@ -13,7 +13,7 @@
 </p>
 
 <p align="center">
-  <a href="https://skyvee-tech.github.io/Website-Bisnis/"><img src="https://img.shields.io/badge/Website-Skyvee%20Tech-2F3F76?style=for-the-badge" alt="Website Skyvee Tech"></a>
+  <a href="https://skyveetech.my.id/"><img src="https://img.shields.io/badge/Website-Skyvee%20Tech-2F3F76?style=for-the-badge" alt="Website Skyvee Tech"></a>
   <a href="https://wa.me/6285641388709"><img src="https://img.shields.io/badge/WhatsApp-0856--4138--8709-12804A?style=for-the-badge&logo=whatsapp&logoColor=white" alt="WhatsApp Skyvee Tech"></a>
 </p>
 
@@ -80,12 +80,13 @@ Chat dulu sebelum datang supaya teknisi sudah siap dan sparepart yang Anda butuh
 - **WhatsApp / Telepon:** [0856-4138-8709](https://wa.me/6285641388709)
 - **Email:** [greshyafharel@gmail.com](mailto:greshyafharel@gmail.com)
 - **Instagram:** [@skyvee_tech](https://www.instagram.com/skyvee_tech)
-- **Website:** [skyvee-tech.github.io/Website-Bisnis](https://skyvee-tech.github.io/Website-Bisnis/)
+- **Website:** [skyveetech.my.id](https://skyveetech.my.id/)
 
 ## Catatan deploy & SEO
 
-- Setelah deploy, submit `https://skyvee-tech.github.io/Website-Bisnis/sitemap.xml` di Google Search Console.
-- `robots.txt` di repo ini berada di subfolder `/Website-Bisnis/`, jadi crawler tidak membacanya. Agar robots.txt berada di root, perlu custom domain atau repo user site `skyvee-tech.github.io`.
+- Domain utama: `https://skyveetech.my.id/` (diarahkan ke GitHub Pages lewat file `CNAME`).
+- Submit `https://skyveetech.my.id/sitemap.xml` di Google Search Console.
+- `robots.txt` dan `sitemap.xml` sekarang berada di root domain, jadi bisa dibaca crawler.
 
 <p align="center">
   <br>
