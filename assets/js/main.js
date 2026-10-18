@@ -107,7 +107,8 @@
   const reviewMore = document.querySelector('[data-review-more]');
   const reviewExtras = [...document.querySelectorAll('[data-review-extra]')];
   if (reviewMore && reviewExtras.length) {
-    const moreLabel = `Tampilkan ${reviewExtras.length} ulasan lainnya`;
+    const moreLabel = `Lihat ${reviewExtras.length} ulasan lainnya`;
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     document.getElementById('review-cards')?.classList.add('is-collapsible');
     reviewMore.hidden = false;
     reviewMore.textContent = moreLabel;
@@ -119,6 +120,16 @@
       });
       reviewMore.setAttribute('aria-expanded', String(!expanded));
       reviewMore.textContent = expanded ? moreLabel : 'Tampilkan lebih sedikit';
+      if (expanded) {
+        reviewMore.focus();
+      } else {
+        const first = reviewExtras[0];
+        first.setAttribute('tabindex', '-1');
+        requestAnimationFrame(() => {
+          first.focus({ preventScroll: true });
+          first.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'center' });
+        });
+      }
     });
   }
 

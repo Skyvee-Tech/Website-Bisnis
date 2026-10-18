@@ -379,6 +379,14 @@ a:hover { color: var(--brand-700); }
 }
 .rating-card { top: 22px; left: -32px; }
 .hours-card { bottom: 26px; right: -26px; }
+@keyframes float-soft {
+  from { transform: translateY(0); }
+  to { transform: translateY(-6px); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .float-card { animation: float-soft 6s ease-in-out infinite alternate; }
+  .hours-card { animation-delay: -3s; }
+}
 
 .rating-card > div { display: grid; grid-template-columns: auto auto; align-items: baseline; gap: 1px 10px; }
 .rating-value { font-size: 1.5rem; font-weight: 800; color: var(--ink); line-height: 1; }
@@ -571,11 +579,48 @@ a:hover { color: var(--brand-700); }
 }
 
 .review-summary {
+  position: relative;
+  overflow: hidden;
   padding: 30px;
-  background: #fff;
-  border: 1px solid var(--line);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, .94), rgba(255, 255, 255, .74)) padding-box,
+    linear-gradient(135deg, rgba(255, 255, 255, .95), rgba(130, 202, 240, .42)) border-box;
+  border: 1px solid transparent;
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 24px 60px -32px rgba(16, 26, 53, .45), 0 8px 24px -18px rgba(16, 26, 53, .24);
+  backdrop-filter: blur(16px) saturate(1.15);
+  -webkit-backdrop-filter: blur(16px) saturate(1.15);
+}
+.review-summary::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(255, 255, 255, .42), transparent 38%);
+  pointer-events: none;
+}
+.review-summary::after {
+  content: "";
+  position: absolute;
+  top: -100px;
+  right: -80px;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(130, 202, 240, .38), transparent 70%);
+  pointer-events: none;
+  animation: glass-float 9s ease-in-out infinite alternate;
+}
+.review-summary > * { position: relative; z-index: 1; }
+@keyframes glass-float {
+  from { transform: translate3d(0, 0, 0) scale(1); opacity: .55; }
+  to { transform: translate3d(-16px, 12px, 0) scale(1.18); opacity: .85; }
+}
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .js .review-summary[data-reveal].is-visible { transition: transform .4s var(--ease), box-shadow .4s var(--ease); }
+  .js .review-summary[data-reveal].is-visible:hover {
+    transform: perspective(1000px) rotateX(1.4deg) rotateY(-1.4deg) translateY(-4px);
+    box-shadow: 0 34px 80px -36px rgba(16, 26, 53, .55), 0 10px 28px -18px rgba(16, 26, 53, .28);
+  }
 }
 .review-score {
   display: flex;
@@ -648,6 +693,18 @@ a:hover { color: var(--brand-700); }
   border-top: 3px solid var(--sky-200);
   border-radius: var(--radius);
   box-shadow: var(--shadow-sm);
+}
+.review-card.is-shown { animation: review-in .55s var(--ease) both; }
+@keyframes review-in {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: none; }
+}
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .review-card { transition: transform .3s var(--ease), box-shadow .3s var(--ease), border-color .3s var(--ease); }
+  .js .review-card[data-reveal].is-visible { transition: transform .3s var(--ease), box-shadow .3s var(--ease), border-color .3s var(--ease); }
+  .review-card:hover { box-shadow: var(--shadow); border-color: var(--sky-200); }
+  .review-card:not([data-reveal]):hover,
+  .js .review-card[data-reveal].is-visible:hover { transform: translateY(-4px); }
 }
 .review-card figcaption {
   display: flex;
@@ -1436,6 +1493,19 @@ html[data-theme="dark"] .map-card { background: #132241; }
 html[data-theme="dark"] .review-card {
   background: linear-gradient(160deg, #132241 0%, #0f1c38 100%);
   border-top-color: rgba(130, 202, 240, .35);
+}
+html[data-theme="dark"] .review-summary {
+  background:
+    linear-gradient(145deg, rgba(19, 34, 65, .94), rgba(15, 28, 56, .82)) padding-box,
+    linear-gradient(135deg, rgba(130, 202, 240, .38), rgba(130, 202, 240, .08)) border-box;
+  border-color: transparent;
+  box-shadow: 0 30px 70px -36px rgba(0, 0, 0, .8), 0 10px 28px -18px rgba(0, 0, 0, .55);
+}
+html[data-theme="dark"] .review-summary::before {
+  background: linear-gradient(120deg, rgba(255, 255, 255, .08), transparent 40%);
+}
+html[data-theme="dark"] .review-summary::after {
+  background: radial-gradient(circle, rgba(130, 202, 240, .24), transparent 70%);
 }
 
 html[data-theme="dark"] .score { color: var(--ink); }
