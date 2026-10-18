@@ -663,12 +663,6 @@ a:hover { color: var(--brand-700); }
   font-size: .9rem;
   line-height: 1.65;
 }
-.review-photo {
-  display: block;
-  width: 100%;
-  margin-top: 14px;
-  border-radius: 12px;
-}
 .reply {
   margin-top: 14px;
   padding: 10px 0 0 12px;
