@@ -51,7 +51,7 @@
 
   const wz = document.querySelector('[data-wizard]');
   if (wz) {
-    const state = { device: '', issue: '', note: '' };
+    const state = { device: '', issue: '', mode: '', note: '' };
     const steps = [...wz.querySelectorAll('[data-step]')];
     const dots = [...wz.querySelectorAll('[data-dot]')];
     const summary = wz.querySelector('[data-summary]');
@@ -61,8 +61,11 @@
 
     const update = () => {
       if (!summary || !send) return;
-      summary.textContent = state.device && state.issue ? `${state.device} · ${state.issue}` : '';
+      summary.textContent = state.device && state.issue
+        ? [state.device, state.issue, state.mode].filter(Boolean).join(' · ')
+        : '';
       const msg = `Halo Skyvee Tech, saya mau konsultasi servis.\n\nPerangkat: ${state.device}\nKeluhan: ${state.issue}` +
+        (state.mode ? `\nCara layanan: ${state.mode}` : '') +
         (state.note ? `\nCatatan: ${state.note}` : '') +
         '\n\nMohon info estimasi biaya dan langkahnya.';
       send.href = 'https://wa.me/6285641388709?text=' + encodeURIComponent(msg);
@@ -93,11 +96,13 @@
             const issueNext = issueGroup.querySelector('[data-next]');
             if (issueNext) issueNext.disabled = true;
           }
+          update();
         });
       });
     };
     bind(1, 'device');
     bind(2, 'issue');
+    bind(3, 'mode');
 
     wz.querySelectorAll('[data-next]').forEach((btn) => btn.addEventListener('click', () => show(current + 1)));
     wz.querySelectorAll('[data-back]').forEach((btn) => btn.addEventListener('click', () => show(current - 1)));

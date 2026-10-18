@@ -25,7 +25,7 @@
 
 ---
 
-## Laptop bermasalah? Bawa ke Skyvee Tech.
+## Laptop bermasalah? Datang atau panggil Skyvee Tech.
 
 Laptop mati total, lemot, kena virus, atau butuh install ulang? Kami periksa dulu, jelaskan biayanya, baru dikerjakan. Tidak perlu menebak-nebak atau takut biaya membengkak di tengah jalan.
 
@@ -37,18 +37,19 @@ Laptop mati total, lemot, kena virus, atau butuh install ulang? Kami periksa dul
 - 🕐 **Buka 24 jam, setiap hari** — termasuk malam dan hari libur.
 - 🔧 **Dikerjakan teknisi** — bukan sekadar dipasang ulang lalu diserahkan.
 - 💬 **Dibalas langsung** — chat WhatsApp dijawab oleh teknisi yang menangani.
-- 📍 **Alamat jelas di Kajen** — bisa datang langsung, tidak perlu kirim ke luar kota.
+- 📍 **Bisa datang atau panggilan** — bengkel di Kajen, atau teknisi ke lokasi untuk area Pekalongan.
 
 ## Layanan
 
 | Layanan | Cocok untuk |
 |---|---|
 | **Servis laptop & komputer** | Mati total, lemot, overheat, blue screen, layar atau keyboard bermasalah |
-| **Install ulang Windows** | Windows 11, 10, dan 7 + driver serta aplikasi standar. Estimasi ±1 jam |
+| **Install ulang Windows** | Windows 11 atau 10 + driver serta aplikasi standar; Windows 7 untuk perangkat offline. Estimasi ±1 jam |
 | **Upgrade SSD & RAM** | Booting lebih cepat, aplikasi lebih ringan, laptop terasa baru |
 | **Recovery data** | File terhapus, hardisk tidak terdeteksi, data yang masih bisa diselamatkan |
 | **Rakit & upgrade PC** | PC kantor, sekolah, atau gaming sesuai budget |
 | **Jual beli & sparepart** | Laptop bekas, SSD, RAM, charger, adaptor, dan sparepart lain |
+| **Servis panggilan & remote** | Install ulang, upgrade, cleaning, virus, printer/PC, dan HP di lokasi; remote untuk software/konsultasi |
 
 Juga melayani servis printer, HP, dan perangkat lain.
 
@@ -71,7 +72,7 @@ Juga melayani servis printer, HP, dan perangkat lain.
 Karang Utara, Kec. Kajen, Kabupaten Pekalongan, Jawa Tengah 51161
 
 **Buka 24 jam, setiap hari.**  
-Chat dulu sebelum datang supaya teknisi sudah siap dan sparepart yang Anda butuhkan tersedia.
+Bisa datang ke bengkel atau minta teknisi ke lokasi. Panggilan gratis area Kabupaten Pekalongan; Kota Pekalongan dan luar daerah konfirmasi via WhatsApp. Remote tersedia untuk software/konsultasi. Antar-jemput dengan tambahan biaya bensin.
 
 [**Buka di Google Maps →**](https://www.google.com/maps/search/?api=1&query=Skyvee+Tech+Kajen+Pekalongan&query_place_id=ChIJJSBLtusfcC4RGG9JkR40iiA)
 
