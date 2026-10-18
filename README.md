@@ -18,7 +18,7 @@
 </p>
 
 <p align="center">
-  <a href="https://search.google.com/local/reviews?placeid=ChIJJSBLtusfcC4RGG9JkR40iiA"><img src="https://img.shields.io/badge/Google-4%2C9%20%E2%98%85%20%C2%B7%2011%20ulasan-4285F4?style=for-the-badge&logo=google&logoColor=white" alt="Rating Google 4,9 dari 11 ulasan"></a>
+  <a href="https://search.google.com/local/reviews?placeid=ChIJJSBLtusfcC4RGG9JkR40iiA"><img src="https://img.shields.io/badge/Google-4%2C9%20%E2%98%85%20%C2%B7%2012%20ulasan-4285F4?style=for-the-badge&logo=google&logoColor=white" alt="Rating Google 4,9 dari 12 ulasan"></a>
   <img src="https://img.shields.io/badge/Buka-24%20Jam-12804A?style=for-the-badge" alt="Buka 24 jam">
   <img src="https://img.shields.io/badge/Kajen-Pekalongan-2F3F76?style=for-the-badge" alt="Kajen, Pekalongan">
 </p>
@@ -33,7 +33,7 @@ Laptop mati total, lemot, kena virus, atau butuh install ulang? Kami periksa dul
 
 ## Kenapa pelanggan kembali lagi
 
-- ⭐ **4,9 dari 11 ulasan Google** — pelanggan menyebut pelayanan cepat dan teknisi ramah.
+- ⭐ **4,9 dari 12 ulasan Google** — pelanggan menyebut pelayanan cepat dan teknisi ramah.
 - 🕐 **Buka 24 jam, setiap hari** — termasuk malam dan hari libur.
 - 🔧 **Dikerjakan teknisi** — bukan sekadar dipasang ulang lalu diserahkan.
 - 💬 **Dibalas langsung** — chat WhatsApp dijawab oleh teknisi yang menangani.
