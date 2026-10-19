@@ -123,7 +123,8 @@ body[data-mode="closed"] .ring::after { border-color: rgba(245, 166, 35, .12); }
   justify-content: center;
 }
 body[data-mode="open"] .content--open,
-body[data-mode="closed"] .content--closed { display: flex; }
+body[data-mode="closed"] .content--closed,
+body[data-mode="github"] .content--github { display: flex; }
 .kicker {
   margin: 0 0 22px;
   color: #82caf0;
@@ -149,6 +150,110 @@ h1 {
   color: #82caf0;
   text-shadow: 0 0 44px rgba(130, 202, 240, .28);
 }
+.github-title {
+  display: grid;
+  gap: 2px;
+  font-size: 118px;
+  color: #f5f9ff;
+}
+.github-title .accent {
+  color: #82caf0;
+  text-shadow: 0 0 44px rgba(130, 202, 240, .28);
+}
+.github-card {
+  margin-top: 38px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 26px 30px;
+  border-radius: 22px;
+  background: linear-gradient(145deg, rgba(255,255,255,.09), rgba(255,255,255,.035));
+  border: 1px solid rgba(130, 202, 240, .24);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.10);
+}
+.github-card svg { width: 58px; height: 58px; flex: none; color: #f5f9ff; }
+.github-card strong { display: block; color: #f5f9ff; font-size: 30px; font-weight: 700; }
+.github-card span { display: block; margin-top: 5px; color: #9fb2d2; font-size: 21px; }
+.cta--github small { color: #43617f; }
+.github-cta {
+  margin-top: 38px;
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: 12px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid rgba(130, 202, 240, .75);
+  color: #f5f9ff;
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+.github-cta span { color: #82caf0; font-size: 36px; line-height: 1; }
+body[data-mode="github"] .poster {
+  background:
+    radial-gradient(800px 600px at 82% 8%, rgba(74, 168, 221, .13), transparent 65%),
+    linear-gradient(165deg, #0b1229 0%, #101a36 58%, #0b1229 100%);
+}
+body[data-mode="github"] .glow-a { opacity: .45; }
+body[data-mode="github"] .glow-b { opacity: .35; }
+body[data-mode="github"] .ring { opacity: .35; }
+.github-topline {
+  width: 100%;
+  height: 1px;
+  margin-bottom: 34px;
+  background: rgba(130, 202, 240, .22);
+}
+.github-kicker {
+  margin: 0 0 18px;
+  color: #82caf0;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+.github-title {
+  margin: 0;
+  font-size: 96px;
+  line-height: 1;
+  letter-spacing: -.04em;
+}
+.github-lede {
+  margin: 26px 0 0;
+  max-width: 720px;
+  color: #a9bed8;
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 1.45;
+}
+.github-card {
+  margin-top: 42px;
+  padding: 24px 28px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, .025);
+  border: 1px solid rgba(130, 202, 240, .22);
+  box-shadow: none;
+}
+.github-card svg { width: 42px; height: 42px; }
+.gh-meta { flex: 1; }
+.gh-meta small {
+  display: block;
+  color: #82caf0;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+.gh-meta strong {
+  display: block;
+  margin-top: 5px;
+  color: #f5f9ff;
+  font-family: "Cascadia Code", Consolas, monospace;
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: -.02em;
+}
+.gh-arrow { color: #82caf0; font-size: 34px; line-height: 1; }
 .open-sub {
   margin: 26px 0 0;
   font-size: 38px;
@@ -338,6 +443,21 @@ h1 {
     </div>
   </main>
 
+  <main class="content content--github">
+    <div class="github-topline"></div>
+    <p class="github-kicker">Github / Open source</p>
+    <h1 class="github-title"><span>FOLLOW</span><span class="accent">THE BUILD.</span></h1>
+    <p class="github-lede">Source code, project, dan eksperimen terbaru — langsung dari GitHub.</p>
+    <div class="github-card">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2.17c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.69 5.41-5.25 5.69.41.35.78 1.05.78 2.12v3.14c0 .31.21.67.8.56A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
+      <div class="gh-meta">
+        <small>Follow sekarang</small>
+        <strong>github.com/Skyvee-Tech</strong>
+      </div>
+      <span class="gh-arrow">↗</span>
+    </div>
+  </main>
+
   <footer class="footer">
     <span><strong>skyveetech.my.id</strong></span>
     <span>Kajen · Pekalongan</span>
@@ -346,7 +466,8 @@ h1 {
 <script>
 (() => {
   const params = new URLSearchParams(location.search);
-  const mode = params.get('mode') === 'open' ? 'open' : 'closed';
+  const modeParam = params.get('mode');
+  const mode = modeParam === 'open' ? 'open' : modeParam === 'github' ? 'github' : 'closed';
   document.body.dataset.mode = mode;
   const reason = (params.get('reason') || 'Tutup Sementara').trim().toUpperCase();
   const reasonEl = document.querySelector('[data-reason]');
